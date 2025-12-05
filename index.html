@@ -6,28 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Your Name Here">
     <title>My Recipe Website</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="./Style/index.css" rel="stylesheet"/>
 </head>
 
 <body>
-    <main id="top">
-        <h1><strong>Welcome to my recipe collection!</strong></h1>
-        <h2>Banana Bread Recipe: 8 steps with pictures</h2>
+    <header> 
+        <nav class="nav">
+            <!-- Internal Navigation -->
+            <a href="./Assets/about.html">About</a>
+            <a href="./index.html">Home</a>
+</nav>
+    </header>
+        <main id="top" class="main"><header><h1 id="main"><strong>Welcome to my recipe collection!</strong></h1>
+        <h2>Banana Bread Recipe: 8 steps with pictures</h2></header>
         <!-- Banana Bread Recipe Card -->
-        <div class="card container">
+        <div class="recipe-card">
             <a href="https://www.allrecipes.com/recipe/20144/banana-banana-bread/" class="recipe card">
-                <img src="./Images/download.jpeg" alt="Banana Bread" width="300" height="200">
+                <img src="./Images/download.jpeg" alt="Banana Bread" width="400" height="300">
                 <h2>Banana Bread</h2>
                 <p>A delicious and moist banana bread recipe that's perfect for breakfast or a snack.</p>
             </a>
         </div>
-    </main>
-    <p>To bake classic, moist banana bread, you will need simple ingredients like <mark>very ripe bananas, flour,
+    <article>To bake classic, moist banana bread, you will need simple ingredients like <mark>very ripe bananas, flour,
             butter, and eggs.</mark><br>
         The process involves mixing the wet ingredients separately from the dry ingredients, combining them,<br>
-        and then baking the batter in a loaf pan until a toothpick inserted into the center comes out clean.</p>
+        and then baking the batter in a loaf pan until a toothpick inserted into the center comes out clean.</article>
+        </main>
     <section>
-        <h2>Ingredients</h2>
+        <h2 class="title">Ingredients</h2>
         <ul>
             <li>1 cup sugar</li>
             <li>1/2 cup butter, softened</li>
@@ -41,7 +47,7 @@
     </section>
 
     <section>
-        <h2>Instructions</h2>
+        <h2 class="title">Instructions</h2>
         <ol>
             <li><strong>Preheat oven and prepare pan</strong>: Preheat your oven to <mark>350°F (175°C)</mark>.<br>
                 Grease an 8x4 inch or 9x5 inch loaf pan.</li>
@@ -60,7 +66,7 @@
         </ol>
     </section>
     <section>
-        <h2>Nutritional Facts</h2>
+        <h2 class="title">Nutritional Facts</h2>
         <ul>
             <li>Calories: 196 per slice (1/10 of a loaf)</li>
             <li>Total Fat: 8g</li>
@@ -73,9 +79,18 @@
             <li>Protein: 3g</li>
         </ul>
     </section>
-    <p>Note:Store the cool banana bread wrapped well at room temperature for up to 4 days, or freeze for longer
-        storage.</br>For more recipes and tops you can explore resources like <a
-            href="https://www.allrecipes.com">allrecipes</a></p>
+    <img src="./Images/20144-banana-banana-bread-mfs-57-0bb49d050a6941c4b3715e57b8e6badd (1).webp" alt="banana bread" width="400" height="300">
+        <section class="grid">
+            <div style="color: chocolate;"><strong>Prep Time</strong>:</br>15mins</div>
+            <div style="color: chocolate;"><strong>Cook Time</strong>:</br>1hr</div>
+            <div style="color: chocolate;"><strong>Total Time</strong>:</br>1hr 15mins</div>
+            <div style="color: chocolate;"><strong>Servings</strong>:</br>12</div>
+            <div style="color: chocolate;"><strong>Yield</strong>:</br>1(9x5)Inch loaf</div>
+            <div style="color: chocolate;"><strong>Calories</strong>:</br>196 kcal</div>
+        </section>
+    <p><strong>Note</strong>:Store the cool banana bread wrapped well at room temperature for up to 4 days, or freeze for longer
+        storage.</br>For more recipes and tips you can explore resources like <a
+            href="https://www.allrecipes.com" style="color: brown;">allrecipes</a></p>
     <footer>
         <p>&copy; 2025 My Recipe Website</p>
     </footer>

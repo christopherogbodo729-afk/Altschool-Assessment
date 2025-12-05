@@ -1,0 +1,113 @@
+html body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 0;
+    margin: 0;
+background-color: white;
+}
+
+h1 {
+    color: darkorange;
+    text-align: left;
+    font-size: 32px;
+    margin: 0px;
+    text-decoration: wavy underline;
+}
+
+header {
+    border-bottom: 1px solid #ddd;
+    padding: 20px;
+}
+.title {
+    text-align: left;
+        font-size: 32px;
+        margin: 30px;
+        color: darkkhaki;
+        text-decoration: wavy underline;
+}
+nav a {
+    margin: 0 10px;
+}
+
+.nav, .main {
+    max-width: 1250px;
+        margin: 0 auto;
+}
+
+.main {
+    padding: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+    text-decoration-style: wavy unset;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff3e0;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.grid div {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
+    font-weight: bold;
+    color: chocolate;
+}
+
+.recipe-card {
+    max-width: 450px;
+    margin: 20px auto;
+    background: #fff8f0;
+    border: 2px solid #ff7a00;
+    /* subtle border for emphasis */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+    /* lift effect */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    /* stronger shadow on hover */
+}
+
+.recipe-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 2px solid #ff7a00;
+    /* nice separation line */
+    transition: transform 0.3s ease;
+}
+
+.recipe-card:hover img {
+    transform: scale(1.05);
+    /* subtle zoom effect on hover */
+}
+
+.recipe-card h2 {
+    color: darkorange;
+    margin: 10px;
+    text-align: center;
+}
+
+.recipe-card p {
+    padding: 0 10px 15px 10px;
+    text-align: center;
+    color: #333;
+}
