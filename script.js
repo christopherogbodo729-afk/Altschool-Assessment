@@ -1,75 +1,82 @@
-// -------- VALIDATION FUNCTIONS -------- //
+// -------- DATA STRUCTURE -------- //
+let students = [];
+let idCounter = 1;
 
-// 1. Full Name: at least 2 words
-function validateFullName(name) {
-    if (!name) return false;
-    return name.trim().split(/\s+/).length >= 2;
+// -------- DOM ELEMENTS -------- //
+const nameInput = document.getElementById("nameInput");
+const gradeInput = document.getElementById("gradeInput");
+const addBtn = document.getElementById("addBtn");
+const studentList = document.getElementById("studentList");
+const averageSpan = document.getElementById("average");
+const errorMsg = document.getElementById("error");
+
+// -------- EVENT: ADD STUDENT -------- //
+addBtn.addEventListener("click", function () {
+    const name = nameInput.value.trim();
+    const grade = Number(gradeInput.value);
+
+    // Validation
+    if (name === "") {
+        errorMsg.textContent = "Student name or grade cannot be empty.";
+        return;
+    }
+
+    if (isNaN(grade) || grade < 0 || grade > 100) {
+        errorMsg.textContent = "Grade must be between 0 and 100.";
+        return;
+    }
+
+    errorMsg.textContent = "";
+
+    // Create student object
+    const student = {
+        id: idCounter++,
+        name: name,
+        grade: grade
+    };
+
+    students.push(student);
+
+    renderStudents();
+    updateAverage();
+
+    nameInput.value = "";
+    gradeInput.value = "";
+});
+
+// -------- DISPLAY STUDENTS -------- //
+function renderStudents() {
+    studentList.innerHTML = "";
+
+    students.forEach(student => {
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td>${student.name}</td>
+            <td>${student.grade}</td>
+            <td><button onclick="deleteStudent(${student.id})">Delete</button></td>
+        `;
+
+        studentList.appendChild(row);
+    });
 }
 
-// 2. Email format
-function validateEmail(email) {
-    const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return pattern.test(email);
+// -------- DELETE STUDENT -------- //
+function deleteStudent(id) {
+    students = students.filter(student => student.id !== id);
+    renderStudents();
+    updateAverage();
 }
 
-// 3. Password strength
-function validatePassword(password) {
-    const pattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
-    return pattern.test(password);
-}
+// -------- AVERAGE CALCULATION -------- //
+function updateAverage() {
+    if (students.length === 0) {
+        averageSpan.textContent = 0;
+        return;
+    }
 
-// 4. Age: must be >= 18
-function validateAge(age) {
-    const num = Number(age);
-    return !isNaN(num) && num >= 18;
-}
+    const total = students.reduce((sum, s) => sum + s.grade, 0);
+    const average = (total / students.length).toFixed(2);
 
-
-// -------- COLLECT USER INPUT WITH PROMPT() -------- //
-
-alert("Welcome! Please complete the registration form.");
-
-let fullName = prompt("Enter your full name (first + last):");
-let email = prompt("Enter your email address:");
-let password = prompt("Create a strong password:");
-let confirmPassword = prompt("Confirm your password:");
-let age = prompt("Enter your age:");
-
-
-// -------- VALIDATION PHASE -------- //
-
-let errors = [];
-
-// Full Name
-if (!validateFullName(fullName)) {
-    errors.push("❌ Full Name must contain at least 2 words.");
-}
-
-// Email
-if (!validateEmail(email)) {
-    errors.push("❌ Email address is invalid.");
-}
-
-// Password
-if (!validatePassword(password)) {
-    errors.push("❌ Password must be at least 8 characters, include an uppercase letter, a number, and a special character.");
-}
-
-// Confirm Password
-if (password !== confirmPassword) {
-    errors.push("❌ Passwords do not match.");
-}
-
-// Age
-if (!validateAge(age)) {
-    errors.push("❌ You must be 18 years or older.");
-}
-
-
-// -------- FINAL FEEDBACK -------- //
-
-if (errors.length > 0) {
-    alert("Registration Failed:\n\n" + errors.join("\n"));
-} else {
-    alert("🎉 Registration Successful! Welcome, " + fullName + "!");
+    averageSpan.textContent = average;
 }
