@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Grade Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Student Grade Tracker</h1>
+
+    <!-- Form -->
+    <div>
+        <input type="text" id="nameInput" placeholder="Student Name">
+        <input type="number" id="gradeInput" placeholder="Grade (0 - 100)">
+        <button id="addBtn">Add Student</button>
+    </div>
+
+    <!-- Error Message -->
+    <p id="error" style="color:red;"></p>
+
+    <!-- Student List -->
+    <table border="1" cellpadding="8">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Grade</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="studentList"></tbody>
+    </table>
+
+    <!-- Average -->
+    <h3>Average Grade: <span id="average">0</span></h3>
+
+    <script src="script.js"></script>
+</body>
+</html>
